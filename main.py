@@ -9,13 +9,11 @@ def caesar(start_text, shift_amount, cipher_direction):
 	word_encoded = True
 	cipher_text = " "
 	for i in start_text:
-		if cipher_direction == "encode":
-			cipher_text += alphabet[(alphabet.index(i) + shift) % 26]			
-			
-	
-		elif cipher_direction == "decode":
-			cipher_text += alphabet[(alphabet.index(i) - shift) % 26]			
+		if cipher_direction == "decode":
+			shift_amount = shift_amount * -1
 			word_encoded = False
+		cipher_text += alphabet[(alphabet.index(i) + shift) % 26]			
+
 
 	if (word_encoded):
 		print(f"The encoded text is {cipher_text}")
